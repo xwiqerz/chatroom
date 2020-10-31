@@ -22,21 +22,17 @@ peer.on("error",(errorMessage)=> {
 // Event listener for click "Refresh list"
 const listPeersButtonEl = document.querySelector(".list-all-peers-button")
 const listAllPeersEl = document.querySelector(".peers")
-const btnForPeers = document.querySelector(".btnForPeers")
 
 listPeersButtonEl.addEventListener("click", () => {
     peer.listAllPeers((peers) => {
-        console.log(peers)
         const listItems = peers
         .filter((peerId) => peerId !== peer._id)
-
         .map((peers) => {
             return `
             <li>
                 <button class="connect-button-peerId-${peers}">${peers}
             </li>
             `
-
         })
         .join("");
 
